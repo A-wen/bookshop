@@ -1,0 +1,14 @@
+.item img{
+       vertical-align : middle;
+       display:block; 
+       margin:auto;
+    }
+.bb{
+    width:400px;
+    height:200px;
+}
+    
+.qq{
+    width:750px;
+    height:200px; 
+}
