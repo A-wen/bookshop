@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.event_info.model.Event_InfoVO" table="EVENT_INFO">
+        <id name="e_No" column="E_NO">
+            <generator class="sequence" >
+            	<param name="sequence_name">EVENT_INFO_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="s_gro_info" class="com.s_gro_info.model.S_gro_infoVO" lazy="false">
+        	<column name="G_NO" />
+        </many-to-one>
+        
+        <property name="e_Name" column="E_NAME" />
+        
+        <many-to-one name="event_Status" class="com.event_status.model.Event_StatusVO" lazy="false">
+        	<column name="E_STAT" />
+        </many-to-one>
+        
+		<property name="e_Intro" column="E_INTRO" />
+		
+		<property name="e_Desc" column="E_DESC" />
+		
+		<property name="e_Date" column="E_DATE" />
+		
+		<property name="e_Loc" column="E_LOC" />
+		
+		<property name="e_Addr" column="E_ADDR" />
+		
+		<property name="e_Limit" column="E_LIMIT" />
+		
+		<property name="e_Img" column="E_IMG" />
+		
+		<set name="eMems" table="EVENT_MEMBER">
+			<key><column name="E_NO" /></key>
+			<one-to-many class="com.event_member.model.Event_MemberVO" />
+		</set>
+    </class>
+</hibernate-mapping>

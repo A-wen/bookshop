@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.event_status.model.Event_StatusVO" table="EVENT_STATUS">
+        <id name="s_No" column="S_NO" />  
+        <property name="s_Exp" column="S_EXP" />
+
+        <set name="events" table="EVENT_INFO" lazy="false" cascade="all" inverse="true" order-by="e_No asc">
+        	<key><column name="E_NO" /></key>
+        	<one-to-many class="com.event_info.model.Event_InfoVO" />
+        </set>
+
+    </class>
+</hibernate-mapping>
