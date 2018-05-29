@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.s_gro_info.model.S_gro_infoVO" table="S_GRO_INFO">
+        <id name="s_gro_no" column="S_GRO_NO">
+            <generator class="sequence" >
+            	<param name="sequence">S_GRO_INFO_SEQ</param>
+            </generator>
+        </id>
+        <property name="s_gro_name" column="S_GRO_NAME" />
+        <property name="s_con" column="S_CON" />
+        <property name="mem_no" column="MEM_NO" />
+        <property name="cs_no" column="CS_NO" />
+        <property name="cre_date" column="CRE_DATE" />
+        <property name="s_gro_sta" column="S_GRO_STA" />
+        
+        <set name="events" table="EVENT_INFO" cascade="save-update" order-by="e_No asc">
+        	<key><column name="E_NO" /></key>
+        	<one-to-many class="com.event_info.model.Event_InfoVO" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+        
+        <!-- Tomcat連線池設定 -->
+        <property name="hibernate.connection.datasource">java:/comp/env/jdbc/DevDB</property>
+        
+        
+        
+        <!-- 連線池c3p0設定-->      
+<!-- 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>	 -->
+<!-- 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property> -->
+<!-- 		<property name="hibernate.connection.username">cy</property> -->
+<!-- 		<property name="hibernate.connection.password">asdfg123</property> -->
+<!-- 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property> -->
+<!-- 		<property name="hibernate.c3p0.min_size">5</property> -->
+<!-- 		<property name="hibernate.c3p0.max_size">20</property> -->
+<!-- 		<property name="hibernate.c3p0.timeout">1800</property> -->
+<!-- 		<property name="hibernate.c3p0.max_statements">50</property> -->
+		
+
+        
+		<!--SQL方言,以下使用Oracle -->
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+
+		<!--是否要顯示實際操作資料庫時的SQL -->
+		<property name="hibernate.show_sql">false</property>
+		<!-- 格式化SQL語句 -->
+		<property name="format_sql">true</property>
+
+        <!-- Disable the second-level cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!--交易管理類型, 以下使用JDBC Transaction -->
+		<property name="hibernate.transaction.coordinator_class">jdbc</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!-- Java物件與資料庫表格的映射檔 -->
+		<!-- 傳統xml -->
+		<mapping resource="com/event_status/model/Event_Status.hbm.xml" />
+		<mapping resource="com/event_info/model/Event_Info.hbm.xml" />
+		<mapping resource="com/s_gro_info/model/S_gro_info.hbm.xml" />
+		<mapping resource="com/mem/model/Mem.hbm.xml" />
+		<mapping resource="com/event_member/model/Event_Member.hbm.xml" />
+		<mapping resource="com/order_info/model/Order_Info.hbm.xml" />
+		<mapping resource="com/order_status/model/Order_Status.hbm.xml" />
+		<mapping resource="com/paymeny_method/model/Payment_Method.hbm.xml" />
+		<mapping resource="com/delivery_status/model/Delivery_Status.hbm.xml" />
+		<mapping resource="com/order_info/model/Order_Info.hbm.xml" />	
+		<mapping resource="com/order_item/model/Order_Item.hbm.xml" />	
+		
+	</session-factory>
+	
+</hibernate-configuration>

@@ -1,0 +1,17 @@
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color:#F8F8F8;
+    left: 0px;
+	padding-top: 10px;
+	z-index:100;
+}
+
+ul.list-inline {
+	text-align:center;
+}
+
+p.copyright {
+	text-align:center;
+}
